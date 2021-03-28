@@ -1,5 +1,10 @@
 import express from 'express';
+// const express = require('express');
 import cors from 'cors';
+// const cors = require('cors');
+import bodyParser from 'body-parser';
+// const bodyParser = require('body-parser');
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -24,9 +29,11 @@ app.get('/user/:id', (req, res) => {
 })
 
 // post
-
-get.post('/adUser', (req, res) => {
-    console.log(post.body);
+app.post('/addUser', (req, res) => {
+    // save to database
+    const user = req.body;
+    user.id = 545;
+    res.send(user);
 })
 
-app.listen(3000 , () => console.log('Runing Port:3000'))
+app.listen(545 , () => console.log('Server Runing On Port:545'))
